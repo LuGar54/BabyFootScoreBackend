@@ -8,7 +8,8 @@ app.use(cors());
 app.use(express.json());
 
 // --- SQLite setup ---
-const db = new sqlite3.Database("./scores.db");
+const dbPath = path.join("/data", "scores.db");
+const db = new sqlite3.Database(dbPath);
 
 // Create table if not exists
 db.run(`CREATE TABLE IF NOT EXISTS scores (
