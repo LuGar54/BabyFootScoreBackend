@@ -1,10 +1,10 @@
 const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
 const app = express();
-const cors = require("cors");
+// const cors = require("cors");
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 
 // --- SQLite setup ---
