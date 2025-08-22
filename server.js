@@ -19,6 +19,14 @@ db.run(`CREATE TABLE IF NOT EXISTS scores (
   red_score INTEGER NOT NULL
 )`);
 
+// --- Routes ---
+app.get("/scores", (req, res) => {
+  db.all("SELECT blue_goalie, blue_attack, red_goalie, red_attack, blue_score, red_score FROM scores", [], (err, rows) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(rows);
+  });
+});
+
 // Submit a score
 app.post("/scores", (req, res) => {
   const { blue_goalie, blue_attack, red_goalie, red_attack, blue_score, red_score } = req.body;
