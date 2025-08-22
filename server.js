@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // --- SQLite setup ---
-const dbPath = path.join("/data", "scores.db");
+const dbPath = path.join(__dirname, "/data", "scores.db");
 const db = new sqlite3.Database(dbPath);
 
 // Create table if not exists
