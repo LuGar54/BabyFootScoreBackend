@@ -9,7 +9,10 @@ app.use(cors());
 app.use(express.json());
 
 // --- SQLite setup ---
-const dbPath = path.join(__dirname, "/data", "scores.db");
+const dbPath = process.env.RENDER
+  ? path.join("/data", "scores.db")
+  : path.join(__dirname, "scores.db");
+
 const db = new sqlite3.Database(dbPath);
 
 // Create table if not exists
