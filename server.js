@@ -1,6 +1,7 @@
 const express = require("express");
 const sqlite3 = require("sqlite3").verbose();
 const app = express();
+const path = require("path");
 // const cors = require("cors");
 const PORT = process.env.PORT || 3000;
 
